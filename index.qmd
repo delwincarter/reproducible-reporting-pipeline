@@ -6,6 +6,9 @@ format:
     toc: true
     theme: cosmo
     code-fold: true
+knitr:
+  opts_chunk:
+    fig.path: "figures/"
 ---
 
 ## Executive Architecture Summary

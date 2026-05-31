@@ -19,10 +19,18 @@ reproducible-reporting-pipeline/
 └── README.md                     # Technical framework documentation
 
 ## Core Technical Features
-- **Automated Data Ingestion & Cleansing:** Built modular R scripts (scripts/01_data_cleaning.R) that automatically interface with raw data inputs, handle missing variables, and enforce strict data-type validation.
+- **Automated Data Ingestion & Cleansing:** Built modular R scripts (`scripts/01_data_cleaning.R`) that automatically interface with raw data inputs, handle missing variables, and enforce strict data-type validation.
 - **Advanced Behavioral Analytics:** Implemented a longitudinal transition framework to analyze shifts in customer engagement states over multiple observation windows while isolating baseline structural noise.
+
+![Structural Performance Shifts](figures/structural_drift_analysis.png)
+
 - **Modular Architecture (Child Documents):** Utilized advanced Quarto compiling methods to separate the data pipeline into distinct, modular code segments, ensuring clean script maintenance and enterprise scalability.
-- **Dynamic Visualization Suite:** Engineered high-density matrix visualizations and boxplots using ggplot2 to translate complex multi-variable datasets into actionable executive insights, programmatically routed directly to the /figures asset directory.
+- **Dynamic Visualization Suite:** Engineered high-density matrix visualizations and boxplots using `ggplot2` to translate complex multi-variable datasets into actionable executive insights, programmatically routed directly to the `/figures` asset directory.
+
+### System Diagnostic Validation
+To ensure numerical stability during high-throughput execution, the optimization engine continuously tracks matrix condition numbers ($\kappa$) across multi-session distributed clusters, automatically flagging structural inversion anomalies.
+
+![HPC Cluster Inversion Diagnostics](figures/matrix_stability_diagnostics.png)
 
 ## System Architecture Stack
 - **Engine:** R Core Environment

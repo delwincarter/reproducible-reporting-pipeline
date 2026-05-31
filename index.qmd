@@ -1,7 +1,7 @@
 ---
-title: "Enterprise Behavioral Dynamics & Analytics Suite"
-subtitle: "Automated Production Pipeline & HPC Cluster Diagnostics"
-author: "Dr. Carter | Advanced Quantitative Methodology Consultant"
+title: "Enterprise Analytics Automation System"
+subtitle: "Reproducible R + Quarto Infrastructure for Data Cleaning, Statistical Modeling, Visual Diagnostics, and Automated Reporting"
+author: "Dr. Carter | Quantitative Methodology & Analytics Automation Consultant"
 format: 
   html:
     theme: cosmo
@@ -10,62 +10,223 @@ format:
     page-layout: full
     code-fold: true
     embed-resources: true
+execute:
+  warning: false
+  message: false
 ---
 
-## System Overview & Performance Summary
+```{=html}
+<style>
+.hero-box {
+  padding: 2rem;
+  border-radius: 14px;
+  background: #f7f9fb;
+  border-left: 7px solid #2c3e50;
+  margin-bottom: 2rem;
+}
 
-This dashboard demonstrates a fully reproducible, automated reporting pipeline built in R and Quarto. This framework completely replaces manual spreadsheet data compilation, mitigating human data-entry risk while isolating structural variance across distinct market segments.
+.hero-box h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-weight: 800;
+}
 
-------------------------------------------------------------------------
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
 
-## Analytical Intelligence & Core Data Matrix
+.value-card {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #d9e2ec;
+  background: #ffffff;
+}
 
-The ingestion pipeline successfully filtered missing administrative records, enforced strict validation rules, and isolated structural drift between observation cycles.
+.value-card strong {
+  color: #2c3e50;
+}
+
+.pipeline-step {
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+  border-left: 5px solid #2980b9;
+  background: #f8fbfd;
+  border-radius: 8px;
+}
+
+.callout-note {
+  border-left-color: #2c3e50 !important;
+}
+</style>
+```
 
 ```{r}
-#| label: unified-analytics-view
+#| label: setup
 #| echo: false
 #| message: false
 #| warning: false
 
+library(dplyr)
 library(ggplot2)
 library(DT)
 
-# Execute core processing modules cleanly
-source("scripts/01_data_cleaning.R")
-source("scripts/02_statistical_modeling.R")
+if (!dir.exists("figures")) dir.create("figures")
+if (!dir.exists("logs")) dir.create("logs")
+```
 
-# Render a clean, non-duplicated interactive matrix
+::: hero-box
+## I Build Reproducible Analytics Systems That Replace Manual Reporting Workflows
+
+This project is a working proof-of-capability: a modular R and Quarto system that cleans data, validates records, runs statistical summaries, generates diagnostic figures, and compiles the results into a client-facing HTML report.
+
+The goal is not a one-off dashboard. The goal is a repeatable analytic system that can be rerun, inspected, modified, documented, and scaled.
+
+For clients, this means fewer manual spreadsheet errors, faster reporting cycles, cleaner technical documentation, and outputs that are easier to audit, explain, and trust.
+:::
+
+## What This System Demonstrates
+
+::::::: value-grid
+::: value-card
+<strong>Automated data preparation</strong><br> Raw records are generated or ingested programmatically, filtered through scripted rules, cleaned, transformed, and prepared for analysis.
+:::
+
+::: value-card
+<strong>Reproducible statistical reporting</strong><br> Analytic summaries and visual diagnostics are generated through reusable R functions rather than manual spreadsheet manipulation.
+:::
+
+::: value-card
+<strong>Client-facing Quarto output</strong><br> The workflow compiles results into an HTML report that can be shared as a webpage, portfolio artifact, internal report, or recurring client deliverable.
+:::
+
+::: value-card
+<strong>Scalable processing logic</strong><br> The advanced processing module demonstrates parallelized batch execution, seeded simulation runs, error-catching, aggregation, and diagnostic telemetry.
+:::
+:::::::
+
+## Pipeline Architecture
+
+::: pipeline-step
+<strong>1. Data Layer</strong><br> Raw or simulated operational data enter the workflow through a scripted ingestion layer.
+:::
+
+::: pipeline-step
+<strong>2. Cleaning and Validation Layer</strong><br> The pipeline filters invalid records, standardizes variables, handles anomalous values, and creates derived metrics.
+:::
+
+::: pipeline-step
+<strong>3. Modeling Layer</strong><br> Reusable R functions summarize behavioral or operational patterns across groups, timepoints, or client-defined segments.
+:::
+
+::: pipeline-step
+<strong>4. Diagnostic Layer</strong><br> The workflow exports publication-quality visual diagnostics into the project structure.
+:::
+
+::: pipeline-step
+<strong>5. Reporting Layer</strong><br> A master automation script renders the Quarto source document into a polished HTML report.
+:::
+
+------------------------------------------------------------------------
+
+## Automated Data Cleaning and Integrity Audit
+
+The first module simulates an incoming operational dataset, removes missing segment records, standardizes segment labels, handles anomalous values, and creates a derived longitudinal change metric. This is the kind of scripted cleaning layer that replaces fragile manual spreadsheet cleanup.
+
+```{r}
+#| label: run-data-cleaning
+#| echo: false
+#| message: false
+#| warning: false
+
+source("scripts/01_data_cleaning.R")
+```
+
+```{r}
+#| label: cleaned-data-preview
+#| echo: false
+#| message: false
+#| warning: false
+
 datatable(
-  clean_metrics, 
+  clean_metrics,
   options = list(
-    pageLength = 5, 
-    dom = 'tp', 
+    pageLength = 8,
+    dom = "tip",
     ordering = TRUE
   ),
   rownames = FALSE,
-  class = 'cell-border stripe hover'
+  class = "cell-border stripe hover",
+  caption = "Cleaned analytic dataset after scripted validation, missing-record filtering, anomaly handling, and derived metric creation."
 )
 ```
 
-## Longitudinal Structural Trajectories
+## Statistical Modeling and Segment-Level Diagnostics
 
-By isolating baseline noise across distinct target segments, the model uncovers structural drift between observation cycles.
+The second module summarizes baseline engagement, state-level activity, and longitudinal volatility across operational segments. This translates cleaned data into interpretable client-facing metrics.
 
 ```{r}
-#| label: structural-plot-isolated
+#| label: run-statistical-modeling
+#| echo: false
+#| message: false
+#| warning: false
+
+source("scripts/02_statistical_modeling.R")
+```
+
+```{r}
+#| label: model-output-table
+#| echo: false
+#| message: false
+#| warning: false
+
+datatable(
+  model_output,
+  options = list(
+    pageLength = 5,
+    dom = "tip",
+    ordering = TRUE
+  ),
+  rownames = FALSE,
+  class = "cell-border stripe hover",
+  caption = "Segment-level statistical summary generated by the reusable modeling layer."
+)
+```
+
+## Longitudinal Structural Drift
+
+This diagnostic isolates the change from Q1 to Q2 within each segment. In a client setting, the same structure could be adapted to track customer behavior, program outcomes, survey movement, retention risk, operational performance, or repeated-measures research outcomes.
+
+```{r}
+#| label: structural-drift-plot
 #| echo: false
 #| fig-width: 10
 #| fig-height: 5
+#| message: false
+#| warning: false
 
 ggplot(clean_metrics, aes(x = segment, y = variance_delta, fill = segment)) +
-  geom_boxplot(alpha = 0.75, outlier.colour = "#c0392b", outlier.shape = 16, outlier.size = 2.5) +
-  scale_fill_manual(values = c("Enterprise" = "#2c3e50", "Mid-Market" = "#2980b9", "SMB" = "#7f8c8d")) +
+  geom_boxplot(
+    alpha = 0.75,
+    outlier.colour = "#c0392b",
+    outlier.shape = 16,
+    outlier.size = 2.5
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Enterprise" = "#2c3e50",
+      "Mid-Market" = "#2980b9",
+      "SMB" = "#7f8c8d"
+    )
+  ) +
   theme_minimal(base_size = 12) +
   labs(
     title = "Structural Performance Shifts by Customer Segment",
-    subtitle = "Automated Quality Assurance Pipeline Target Analytics",
-    x = "Enterprise Operational Tier",
+    subtitle = "Automated diagnostic showing Q2 minus Q1 movement across operational tiers",
+    x = "Operational Segment",
     y = "Longitudinal Variance Delta (Q2 - Q1)"
   ) +
   theme(
@@ -75,27 +236,66 @@ ggplot(clean_metrics, aes(x = segment, y = variance_delta, fill = segment)) +
   )
 ```
 
-## Technical Validation & HPC Cluster Telemetry
+## Technical Validation and Scalable Processing Telemetry
+
+This section demonstrates the advanced processing layer: parallelized batch execution, seeded simulation runs, matrix inversion checks, error handling, and aggregation into a final diagnostic object. The point is to show scalable analytic architecture, not just a static report.
+
+```{r}
+#| label: run-cluster-orchestration
+#| echo: false
+#| message: false
+#| warning: false
+
+source("advanced_scaling/cluster_orchestration.R")
+```
 
 ### Numerical Stability Analysis
 
-To ensure structural fidelity during high-throughput execution, the optimization engine continuously tracks matrix condition numbers (κ) across multi-session distributed clusters. Spikes are automatically checked against inversion threshold tolerances to isolate mathematical noise from genuine data anomalies.
+The scaling module tracks matrix condition numbers across batch runs. In production analytics, this kind of diagnostic layer can help distinguish ordinary computational variation from true pipeline failures or mathematically unstable transformations.
 
 ```{r}
-#| label: stability-plot-isolated
+#| label: stability-telemetry-table
+#| echo: false
+#| message: false
+#| warning: false
+
+datatable(
+  final_pipeline_audit,
+  options = list(
+    pageLength = 8,
+    dom = "tip",
+    ordering = TRUE
+  ),
+  rownames = FALSE,
+  class = "cell-border stripe hover",
+  caption = "Parallel batch-processing audit with condition indices, determinant values, and failure flags."
+)
+```
+
+```{r}
+#| label: stability-telemetry-plot
 #| echo: false
 #| fig-width: 10
-#| fig-height: 4
+#| fig-height: 4.5
+#| message: false
+#| warning: false
 
-ggplot(clean_metrics, aes(x = user_id, y = baseline_engagement)) +
+ggplot(final_pipeline_audit, aes(x = batch, y = condition_index)) +
   geom_line(color = "#2c3e50", linewidth = 0.8) +
-  geom_point(color = "#27ae60", size = 2) +
+  geom_point(aes(color = failure_flag), size = 2) +
+  scale_color_manual(
+    values = c(
+      "FALSE" = "#27ae60",
+      "TRUE" = "#c0392b"
+    )
+  ) +
   theme_minimal(base_size = 11) +
   labs(
-    title = "HPC Cluster Inversion Core Metrics: Stress-Test Analysis",
-    subtitle = "Condition Numbers (Kappa Value) Across Distributed Multi-Session Simulation Runs",
+    title = "Matrix Stability Diagnostics Across Parallel Batch Runs",
+    subtitle = "Condition numbers tracked across reproducible multi-session processing cycles",
     x = "Simulation Batch Run ID",
-    y = "Matrix Condition Index (Kappa Value)"
+    y = "Matrix Condition Index (Kappa Value)",
+    color = "Failure Flag"
   ) +
   theme(
     plot.title = element_text(face = "bold", color = "#2c3e50"),
@@ -103,10 +303,51 @@ ggplot(clean_metrics, aes(x = user_id, y = baseline_engagement)) +
   )
 ```
 
-### Executive Interpretation Key
+## Executive Interpretation
 
-- **Tier Baseline Stability:** Cross-segment variance centers tightly around a median slightly below zero, indicating a uniform, systemic baseline correction across all market tiers between observation intervals.
+This demonstration shows how a manual reporting process can be converted into a reproducible analytics system.
 
-- **Anomalous Outlier Detection:** The programmatic identification of upper and lower variance outliers (highlighted in deep crimson) flags accounts experiencing acute behavioral transitions. These specific entities are automatically routed to the customer success data pipeline for proactive mitigation.
+**Data integrity:** The workflow applies scripted cleaning rules rather than relying on manual spreadsheet edits.
 
-- **Pipeline Integrity:** Zero-point alignment confirms that the automated data cleaning and structural modeling scripts are transforming the underlying raw metrics with perfect mathematical fidelity.
+**Analytic reproducibility:** Statistical summaries and visual diagnostics are generated from reusable functions, making the workflow easier to rerun, audit, and modify.
+
+**Reporting automation:** The final HTML report is generated from Quarto, allowing the same pipeline to support web reports, PDF reports, internal documentation, or recurring client deliverables.
+
+**Scalability:** The advanced processing layer demonstrates parallel execution, seeded batch processing, error-catching, and diagnostic aggregation for larger computational workflows.
+
+## Client Applications
+
+This architecture can be adapted for:
+
+- automated weekly or monthly reporting
+- survey analysis dashboards
+- research lab reporting systems
+- nonprofit impact reporting
+- business KPI summaries
+- data quality audits
+- reproducible statistical reports
+- executive-facing HTML or PDF reports
+- replacing fragile Excel workflows with scripted R/Quarto pipelines
+
+## Consulting Services
+
+I build reproducible analytics systems for researchers, businesses, nonprofits, and teams that need reliable reporting instead of fragile manual workflows.
+
+Typical projects include:
+
+- converting manual Excel reporting into automated R/Quarto workflows
+- cleaning and validating messy survey, research, or business datasets
+- building reproducible statistical analysis reports
+- creating automated HTML, PDF, or presentation-ready outputs
+- developing reusable reporting templates for recurring projects
+- auditing existing data workflows for errors, inefficiency, and reproducibility problems
+- translating complex statistical results into client-facing reports
+
+------------------------------------------------------------------------
+
+## Technical Stack
+
+**Core tools:** R, Quarto, ggplot2, dplyr, DT, future, future.apply\
+**Workflow type:** reproducible analytics pipeline\
+**Output type:** client-facing HTML report\
+**Primary value:** automated analysis, validated reporting, reproducible documentation, and scalable workflow design

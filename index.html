@@ -73,6 +73,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-8ffd5f67044e5306d9846f29df41dda5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="index_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="index_files/libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="index_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="index_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="index_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="index_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="index_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="index_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
 
 </head>
@@ -129,74 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="automated-data-validation-metrics">Automated Data Validation Metrics</h2>
 <p>The ingestion pipeline successfully filtered out missing administrative segments and enforced programmatic data quality guardrails.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(clean_metrics, <span class="dv">5</span>), <span class="at">caption =</span> <span class="st">"Ingested &amp; Validated Staging Core Data"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Ingested &amp; Validated Staging Core Data</caption>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 14%">
-<col style="width: 25%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">user_id</th>
-<th style="text-align: left;">segment</th>
-<th style="text-align: right;">baseline_engagement</th>
-<th style="text-align: right;">q1_activity</th>
-<th style="text-align: right;">q2_activity</th>
-<th style="text-align: right;">variance_delta</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1002</td>
-<td style="text-align: left;">Mid-Market</td>
-<td style="text-align: right;">49.08744</td>
-<td style="text-align: right;">28.83656</td>
-<td style="text-align: right;">71.02098</td>
-<td style="text-align: right;">42.184413</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1003</td>
-<td style="text-align: left;">SMB</td>
-<td style="text-align: right;">53.99959</td>
-<td style="text-align: right;">57.37158</td>
-<td style="text-align: right;">51.36407</td>
-<td style="text-align: right;">-6.007505</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1004</td>
-<td style="text-align: left;">Enterprise</td>
-<td style="text-align: right;">55.88902</td>
-<td style="text-align: right;">78.07021</td>
-<td style="text-align: right;">16.95216</td>
-<td style="text-align: right;">-61.118050</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1005</td>
-<td style="text-align: left;">Enterprise</td>
-<td style="text-align: right;">49.83122</td>
-<td style="text-align: right;">43.86256</td>
-<td style="text-align: right;">63.38469</td>
-<td style="text-align: right;">19.522133</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1006</td>
-<td style="text-align: left;">SMB</td>
-<td style="text-align: right;">54.18704</td>
-<td style="text-align: right;">51.05219</td>
-<td style="text-align: right;">42.76884</td>
-<td style="text-align: right;">-8.283354</td>
-</tr>
-</tbody>
-</table>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-cdacc98278b8dcc42be5" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-cdacc98278b8dcc42be5">{"x":{"filter":"none","vertical":false,"caption":"<caption>Ingested &amp; Validated Staging Core Data<\/caption>","data":[[1002,1003,1004,1005,1006,1007,1008,1009,1010,1011],["Mid-Market","SMB","Enterprise","Enterprise","SMB","Mid-Market","Enterprise","SMB","Enterprise","SMB"],[49.08743639910224,53.99959374815337,55.88901656549108,49.83121960613187,54.18704182088633,58.00727964524837,56.79893103827864,63.09663922539539,31.08785521130919,53.44907334668953],[28.83656416921461,57.37157861952835,78.07021241435868,43.86256059871874,51.0521932874938,66.42485803660298,74.72960620165416,45.83147884632174,48.63671111191649,33.81254620957836],[71.02097665030036,51.36407325967637,16.9521624803683,63.38469400920449,42.76883956539426,59.95822396093496,53.40192433482311,37.46929444205333,61.62291177303975,45.46928391736967],[42.18441248108574,-6.007505359851983,-61.11804993399038,19.52213341048575,-8.283353722099541,-6.466634075668026,-21.32768186683106,-8.362184404268412,12.98620066112326,11.65673770779131]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>user_id<\/th>\n      <th>segment<\/th>\n      <th>baseline_engagement<\/th>\n      <th>q1_activity<\/th>\n      <th>q2_activity<\/th>\n      <th>variance_delta<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"dom":"t","ordering":true,"columnDefs":[{"className":"dt-right","targets":[0,2,3,4,5]},{"name":"user_id","targets":0},{"name":"segment","targets":1},{"name":"baseline_engagement","targets":2},{"name":"q1_activity","targets":3},{"name":"q2_activity","targets":4},{"name":"variance_delta","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -206,25 +151,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_metrics, <span class="fu">aes</span>(<span class="at">x =</span> segment, <span class="at">y =</span> variance_delta, <span class="at">fill =</span> segment)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">outlier.colour =</span> <span class="st">"#c0392b"</span>, <span class="at">outlier.shape =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Enterprise"</span> <span class="ot">=</span> <span class="st">"#2c3e50"</span>, <span class="st">"Mid-Market"</span> <span class="ot">=</span> <span class="st">"#2980b9"</span>, <span class="st">"SMB"</span> <span class="ot">=</span> <span class="st">"#7f8c8d"</span>)) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Structural Performance Shifts by Customer Segment"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Automated Quality Assurance Pipeline Target Analytics"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Enterprise Operational Tier"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Longitudinal Variance Delta (Q2 - Q1)"</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>),</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_metrics, <span class="fu">aes</span>(<span class="at">x =</span> segment, <span class="at">y =</span> variance_delta, <span class="at">fill =</span> segment)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">outlier.colour =</span> <span class="st">"#c0392b"</span>, <span class="at">outlier.shape =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Enterprise"</span> <span class="ot">=</span> <span class="st">"#2c3e50"</span>, <span class="st">"Mid-Market"</span> <span class="ot">=</span> <span class="st">"#2980b9"</span>, <span class="st">"SMB"</span> <span class="ot">=</span> <span class="st">"#7f8c8d"</span>)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Structural Performance Shifts by Customer Segment"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Automated Quality Assurance Pipeline Target Analytics"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Enterprise Operational Tier"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Longitudinal Variance Delta (Q2 - Q1)"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="figures/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

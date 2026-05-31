@@ -43,7 +43,7 @@ corporate_plot <- ggplot(clean_metrics, aes(x = segment, y = variance_delta, fil
 
 # 3. Force-write the asset to the root working directory
 ggsave(
-  filename = "structural_drift_analysis.png", 
+  filename = "figures/structural_drift_analysis.png", 
   plot = corporate_plot, 
   width = 8, 
   height = 5, 

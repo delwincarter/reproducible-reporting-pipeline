@@ -73,7 +73,7 @@ stability_plot <- ggplot(final_pipeline_audit, aes(x = batch, y = condition_inde
   theme(plot.title = element_text(face = "bold"))
 
 # Save the diagnostic plot asset silently to the workspace
-ggsave("matrix_stability_diagnostics.png", plot = stability_plot, width = 8, height = 4.5, dpi = 300)
+ggsave("figures/matrix_stability_diagnostics.png", plot = stability_plot, width = 8, height = 4.5, dpi = 300)
 
 print(head(final_pipeline_audit))
 message("Parallel computation complete. Visual asset saved: 'matrix_stability_diagnostics.png'")

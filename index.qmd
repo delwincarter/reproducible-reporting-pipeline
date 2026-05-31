@@ -20,6 +20,7 @@ This dashboard demonstrates a fully reproducible, automated reporting pipeline b
 source("scripts/01_data_cleaning.R")
 source("scripts/02_statistical_modeling.R")
 library(ggplot2)
+library(DT)
 ```
 
 ## Automated Data Validation Metrics
@@ -27,7 +28,16 @@ library(ggplot2)
 The ingestion pipeline successfully filtered out missing administrative segments and enforced programmatic data quality guardrails.
 
 ```{r}
-knitr::kable(head(clean_metrics, 5), caption = "Ingested & Validated Staging Core Data")
+#| echo: false
+#| message: false
+
+# Upgraded interactive enterprise matrix
+datatable(
+  head(clean_metrics, 10), 
+  caption = "Ingested & Validated Staging Core Data",
+  options = list(pageLength = 5, dom = 't', ordering = TRUE),
+  rownames = FALSE
+)
 ```
 
 ## Longitudinal Structural Trajectories
